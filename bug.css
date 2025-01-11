@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon error where the specificity of selectors unexpectedly overrides expected styling:
+
+```css
+.container {
+  background-color: lightblue;
+}
+
+.container p {
+  background-color: lightgreen;
+}
+
+p.special {
+  background-color: lightcoral;
+}
+
+.container p.special {
+  background-color: lightyellow;
+}
+```
+
+In this example, one might expect the paragraph with class "special" inside the container to have a background color of "lightcoral".  However, because the selector ".container p.special" is more specific, it will override the style set by "p.special", resulting in a lightyellow background instead. This is unexpected if one assumed a simple cascade would work and the most specific selector would always take precedence regardless of order.
