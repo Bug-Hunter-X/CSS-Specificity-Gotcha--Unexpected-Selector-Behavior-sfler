@@ -1,0 +1,44 @@
+The issue can be solved by either ensuring the intended selector is more specific, or by reorganizing the CSS rules to prioritize the desired style:
+
+**Solution 1 (More Specific Selector):**
+
+```css
+.container {
+  background-color: lightblue;
+}
+
+.container p {
+  background-color: lightgreen;
+}
+
+.container p.special {
+  background-color: lightcoral; /* More specific, takes precedence */
+}
+
+p.special {
+  background-color: lightyellow;
+}
+```
+
+**Solution 2 (Re-ordering):**
+
+In this solution, the order of CSS selectors matters; the more specific selector must come *before* the less specific one:
+
+```css
+.container {
+  background-color: lightblue;
+}
+
+.container p {
+  background-color: lightgreen;
+}
+
+p.special {
+  background-color: lightyellow;
+}
+
+.container p.special {
+  background-color: lightcoral; /* Now it takes precedence */
+}
+```
+In both solutions, the paragraph with class "special" inside the container will now correctly have the "lightcoral" background.
